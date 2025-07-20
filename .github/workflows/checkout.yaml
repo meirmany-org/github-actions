@@ -6,6 +6,12 @@ jobs:
     steps:
       - name: List Files Before
         run: ls -la
+      - name: Debug variables
+        run: |
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+          echo "GITHUB_REPOSITORY: ${{GITHUB_REPOSITORY}}"
+          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+          echo "GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}"
       - name: Checkout
         run: |
           git init

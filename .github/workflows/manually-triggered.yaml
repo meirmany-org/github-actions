@@ -48,7 +48,7 @@ jobs:
     steps:
       - run: echo $GITHUB_SHA
       - run: echo $GITHUB_REF 
-      - run |
+      - run: |
           echo "String: ${{ inputs.string}}"
           echo "Number: ${{ inputs.number}}"
           echo "Option: ${{ inputs.option}}"

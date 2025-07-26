@@ -1,0 +1,14 @@
+name: Stale Issues & PRs
+on:
+  schedule:
+    - cron: '0 14 * * *' # Runs every day at 14:00 UTC 
+  
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v8
+        with:
+          stale-issuee-message: 'This issue has been automatically marked as stale'
+          days-before-stale: 1
+          days-before-close: 5

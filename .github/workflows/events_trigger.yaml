@@ -1,6 +1,24 @@
 name: Repository events
 on:
   push:
+  # Pay Attention!!! you can not combine both branches and branches-ignored togather!!!!
+    branches:
+      - main
+      - "feature/*" # Matches feature/featA, feature/featB, does not match feature/featA/featB
+      - "feature/**" # Matches feature/featA, feature/featB,feature/featA/featB
+      - "!feature/featA" # Excludes feature/featA branch PAY ATTENTION !! The order is important, the exclusion must be after the inclusion
+    #branches-ignore:
+    #  - develop
+
+    tags:
+      - v1.* # Matches v1.0, v1.1, v1.1.2, etc. 
+      - '!v1.1.1' # Excludes v1.1.1 tag PAY ATTENTION !! The order is important, the exclusion must be after the inclusion 
+    
+    path:
+      - 'src/**' # Matches any file in the src directory and its subdirectories
+      - '!src/ignore/**' # Excludes any file in the src/ignore directory and its subdirectories 
+      - "**.js" # Matches any .js file in the repository Please Note that there is a filter cocerns branches and tags and there is a filter concerns paths   
+      - "!app.js" # Excludes app.js file 
   pull_request:
     types: [opened, assigned, reopened, synchronize]
   issues:

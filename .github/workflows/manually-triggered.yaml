@@ -1,0 +1,19 @@
+name: Manually Triggered
+on:
+  workflow_dispatch:
+    #inputs:
+    #  branch:
+    #    description: 'Branch to run the workflow on'
+    #    required: true
+    #    default: 'main'
+    #  tag:
+    #    description: 'Tag to run the workflow on'
+    #    required: false
+    #    default: ''  
+    
+jobs:
+  log-info:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $GITHUB_SHA
+      - run: echo $GITHUB_REF 

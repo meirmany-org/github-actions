@@ -1,34 +1,34 @@
 name: Manually Triggered
 on:
   workflow_dispatch:
-  inputs:
-    string:
-      description: 'A string input for the workflow'
-      type: string 
-      required: true
-      default: 'default value'
-    number:
-      description: 'A number input for the workflow'
-      required: true
-      default: 42
-      type: number
-    option:
-      description: 'A number input with options'
-      required: true
-      default: "option 3" 
-      type: choice
-      options:
-        - option 1
-        - option 2
-        - option 3
-    boolean:
-      description: 'A boolean input for the workflow'
-      required: false
-      type: boolean
-    environment:
-      description: 'An environment input for the workflow'
-      type: environment
-      required: true
+    inputs:
+      string:
+        description: 'A string input for the workflow'
+        type: string 
+        required: true
+        default: 'default value'
+      number:
+        description: 'A number input for the workflow'
+        required: true
+        default: 42
+        type: number
+      option:
+        description: 'A number input with options'
+        required: true
+        default: "option 3" 
+        type: choice
+        options:
+          - option 1
+          - option 2
+          - option 3
+      boolean:
+        description: 'A boolean input for the workflow'
+        required: false
+        type: boolean
+      environment:
+        description: 'An environment input for the workflow'
+        type: environment
+        required: true
       
 
         

@@ -24,11 +24,11 @@ jobs:
           echo '${{ toJson(secrets) }}'
           echo '${{ toJson(steps) }}'
           echo '${{ toJson(runner) }}'
-          echo ${{ github.event_name }}
-          echo ${{ github.repository }}
-          echo ${{ github.actor }}
-          echo ${{ github.sha }}
-          echo ${{ github.ref }}
-          echo ${{ github.workflow }}
-          echo ${{ github.event.pull_request.title }}
-          echo ${{ github.event.issue.title }}
+          #echo ${{ github.event_name }}
+          #echo ${{ github.repository }}
+          #echo ${{ github.actor }}
+          #echo ${{ github.sha }}
+          #echo ${{ github.ref }}
+          #echo ${{ github.workflow }}
+          #echo ${{ github.event.pull_request.title }}
+          #echo ${{ github.event.issue.title }}

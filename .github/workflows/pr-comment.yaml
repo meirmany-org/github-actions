@@ -5,10 +5,13 @@ on:
 jobs:
   pr-commnet:
     runs-on: ubuntu-latest
+    permissions:
+      issues: read 
     steps:
       - name: Comment on New PRs
         uses: actions/github-script@v6
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const pr = context.payload.pull_request;
             const comment = `Hello @${pr.user.login}, thank you for opening this pull request!`;

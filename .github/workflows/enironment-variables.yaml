@@ -40,6 +40,7 @@ jobs:
           echo $WF_LEVEL_ENV # This will print the value of the WF_LEVEL_ENV variable
           echo $JOB_LEVEL_ENV # This will print the value of the JOB_LEVEL_ENV variable 
           echo $NEW_ENV_VAR # This will print the value of the NEW_ENV_VAR variable 
+          echo $RANDOM_JOKE # This will print the value of the RANDOM_JOKE variable
       #- name: Print Environment Variables
       #  run: |
       #    echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"

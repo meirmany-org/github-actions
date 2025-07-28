@@ -26,16 +26,16 @@ jobs:
           echo '${{ steps.step-2.outputs.step-output}}'
   node-matrix:
         strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        node-version: [14,15,16] 
+          matrix:
+            os: [ubuntu-latest, windows-latest]
+            node-version: [14,15,16] 
         #runs-on: ubuntu-latest
         #run-parallel: 3 # This will run the jobs in parallel, up to 3 at a time 
         runs-on: ${{ matrix.os }}
-    steps:
+        steps:
     
-      - run: node -v
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: node -v 
+          - run: node -v
+          - uses: actions/setup-node@v3
+            with:
+              node-version: ${{ matrix.node-version }}
+          - run: node -v 

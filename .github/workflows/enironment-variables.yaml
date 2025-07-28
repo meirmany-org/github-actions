@@ -22,6 +22,14 @@ jobs:
         run: |
           echo "NEW_ENV_VAR=$(date)" >> "$GITHUB_ENV" 
           echo "JOB_LEVEL_ENV=$RANDOM" >> "$GITHUB_ENV" # This will override the JOB_LEVEL_ENV variable defined at the job level 
+      - name: Multiline ENV Var
+        run: |
+          DELIMITER=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
+          echo "Here is a joke: " >> "$GITHUB_ENV" 
+          curl -s https://icanhazdadjoke.com/ >> "$GITHUB_ENV"
+          echo "" >> "$GITHUB_ENV" 
+          echo $DELIMITER >> "$GITHUB_ENV"  
       - name: Log Custom ENV Vars
         env:
           STEP_LEVEL_ENV: Available to this step only 

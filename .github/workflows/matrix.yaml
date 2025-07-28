@@ -16,7 +16,7 @@ jobs:
           - os: macos-latest
             node-version: 15
           - experimental: false
-          - os: ubbuntu-latest
+          - os: ubuntu-latest
             node-version: 16
             experimental: true
           - os: ubuntu-latest

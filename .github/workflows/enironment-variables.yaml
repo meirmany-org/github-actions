@@ -1,16 +1,32 @@
 name: Environment Variables
 on: [push]
 
+env:
+   WF_LEVEL_ENV: Available at Workflow Level to all jobs
+
 
 jobs:
   env-vars-and-context:
     runs-on: ubuntu-latest
+    # if: $GITHUB_REF == 'refs/heads/main' # DONT use this condition, it will not work as expected 
+    if: github.ref == 'refs/heads/main' # Use this condition to check the branch 
+    env:
+      JOB_LEVEL_ENV: Available to all steps in this job env-vars-and-context
     steps:
       - name: Log ENV VAR
         run: echo $GITHUB_REF
 
       - name: Log Context
         run: echo '${{ github.ref }}'
+      - name: Log Custom ENV Vars
+        env:
+          STEP_LEVEL_ENV: Available to this step only 
+          WF_LEVEL_ENV: Overridden at step level 
+        run: |
+          echo '${{ env.STEP_LEVEL_ENV }}' # context can be used in if conditions !!!
+          echo $STEP_LEVEL_ENV # Variable can not be used in if conditions, only contexts can be used in if conditions !!!!
+          echo $WF_LEVEL_ENV # This will print the value of the WF_LEVEL_ENV variable
+          echo $JOB_LEVEL_ENV # This will print the value of the JOB_LEVEL_ENV variable 
       #- name: Print Environment Variables
       #  run: |
       #    echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"

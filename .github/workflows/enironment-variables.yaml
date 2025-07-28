@@ -18,6 +18,10 @@ jobs:
 
       - name: Log Context
         run: echo '${{ github.ref }}'
+      - name: Set ENV Var
+        run: |
+          echo "NEW_ENV_VAR=$(date)" >> "$GITHUB_ENV" 
+          echo "JOB_LEVEL_ENV=$RANDOM" >> "$GITHUB_ENV" # This will override the JOB_LEVEL_ENV variable defined at the job level 
       - name: Log Custom ENV Vars
         env:
           STEP_LEVEL_ENV: Available to this step only 
@@ -27,6 +31,7 @@ jobs:
           echo $STEP_LEVEL_ENV # Variable can not be used in if conditions, only contexts can be used in if conditions !!!!
           echo $WF_LEVEL_ENV # This will print the value of the WF_LEVEL_ENV variable
           echo $JOB_LEVEL_ENV # This will print the value of the JOB_LEVEL_ENV variable 
+          echo $NEW_ENV_VAR # This will print the value of the NEW_ENV_VAR variable 
       #- name: Print Environment Variables
       #  run: |
       #    echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"

@@ -25,7 +25,7 @@ jobs:
           - os: ubuntu-latest
             node-version: 14
         #run-parallel: 3 # This will run the jobs in parallel, up to 3 at a time 
-        fail-fast: false # This will not stop the matrix if one job fails, it will continue running the other jobs 
+      fail-fast: false # This will not stop the matrix if one job fails, it will continue running the other jobs 
     runs-on: ${{ matrix.os }}
     steps:
       - run: node -v

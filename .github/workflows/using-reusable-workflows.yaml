@@ -2,11 +2,11 @@ name: Calling Reusable workflows
 on:
   workflow_dispatch:
     inputs:
-    name:
-      description: 'Input description'
-      type: string
-      default: 'Meir'
-      required: false
+      name:
+        description: 'Input description'
+        type: string
+        default: 'Meir'
+        required: false
 
 
 jobs:

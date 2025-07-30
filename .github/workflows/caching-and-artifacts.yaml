@@ -25,7 +25,7 @@ jobs:
         if: always()
         with:
           name: code-Coverage
-          path: Coverage
+          path: coverage
           retention-days: 10
       - name: Use Axios
         uses: actions/github-script@v6

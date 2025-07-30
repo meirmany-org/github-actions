@@ -19,7 +19,7 @@ jobs:
 
 
   Calling-a-reusable-wf-in-the-same-repo:
-    uses: ./.github/workflows/reusable.yaml
+    uses: ./.github/workflows/reusable-workflow.yaml
   
   using-reusable-wf-output:
     runs-on: ubuntu-latest

@@ -1,0 +1,18 @@
+name: Calling Reusable workflows 
+on:
+  workflow_dispatch:
+      inputs:
+      name:
+        description: 'Input description'
+        type: string
+        default: 'Meir'
+        required: false
+
+
+jobs:
+  calling-a-reusable-wf:
+    uses: meirmany-org/workflows/.github/workflows/reusable.yaml@main
+    with:
+      name: ${{ inputs.name}}
+    secrets:
+      access-token: ${{ secrets.ACCESS_TOKEN}}

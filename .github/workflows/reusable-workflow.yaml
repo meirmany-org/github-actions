@@ -8,6 +8,13 @@ on:
 
 
 jobs:
+  nested-workflow-call:
+    uses: meirmany-org/workflows/.github/workflows/reusable.yaml@main
+    with:
+      name: 'Meir'
+    secrets:
+      access-token: ${{ secrets.ACCESS_TOKEN}}
+
   generate-output:
     runs-on: ubuntu-latest
     outputs:

@@ -14,9 +14,9 @@ on:
 #  group: concurrency-1
 #  cancel-in-progress: true # This will cancel any in-progress jobs in the same group when a new job is triggered
 
-  concurrency:
-    group: ${{ github.event.inputs.environment }} # This is a concurrency group name based on the input environment 
-    cancel-in-progress: true # This will cancel any in-progress jobs in the same group when a new job is triggered
+concurrency:
+  group: ${{ github.event.inputs.environment }} # This is a concurrency group name based on the input environment 
+  cancel-in-progress: true # This will cancel any in-progress jobs in the same group when a new job is triggered
 jobs:
   sleep:
     runs-on: ubuntu-latest

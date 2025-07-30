@@ -6,13 +6,11 @@ on:
         description: 'Operating System'
         default: "windows-latest,ubuntu-latest"
         type: string
-
       node-version:
         description: 'Node Version'
         default: "14,15,16"
         type: string
   
-
 jobs:
   prepare-matrix:
     runs-on: ubuntu-latest
@@ -22,7 +20,7 @@ jobs:
         with:
           script: "return {os: context.payload.inputs['os'].split(','), 'node-version': context.payload.inputs['node-version'].split(',')}"
           result-encoding: json
-      - run '${{ steps.matrix-arrays.outputs.result}}'              
+      - run: '${{ steps.matrix-arrays.outputs.result}}'              
       - run: echo "step-output=value" >> $GITHUB_OUTPUT
         id: step-1
       - run: echo "step-output=value 2" >> $GITHUB_OUTPUT

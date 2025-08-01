@@ -1,0 +1,29 @@
+name: Docker
+on: [workflow_dispatch]
+
+jobs:
+  docker-job:
+    runs-on: ubuntu-latest
+    container: 
+      image: node:24-alpine3.21
+      #  credetials:
+      #    username: ${{ secrets.DOCKER_USERNAME }}
+      #    password: ${{ secrets.DOCKER_PASSWORD }}
+
+      env:
+        API_URL: 'https://api.example.com' 
+      ports:
+        - 80
+      #volumes:
+      #  - vol_name: /path/in/container # Named volume 
+      #  - /path/to/container # Anonymous volume
+      #  - /path/in/host:/path/in/container # Bind mount
+      #options: --cpus 1
+
+    steps:
+      -name: Log Node & OS Versions
+        run: |
+          node -v
+          cat /etc/os-release
+      -name: Log Env  
+        run: echo $API_URL 

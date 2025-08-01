@@ -29,14 +29,14 @@ jobs:
         run: echo $API_URL 
       - name: Container in a step
         uses: docker://node:18.16-alpine3.17 
-         with:
+        with:
           entrypoint: /usr/local/bin/node
           args: -p 2+3 
       - name: Container in a step
         uses: docker://node:18.16-alpine3.17 
-         with:
+        with:
           args: -v
       - name: Container in a step
         uses: docker://node:18.16-alpine3.17 
-         with:
+        with:
           args: -e "console.log('Hello from Docker!')" 

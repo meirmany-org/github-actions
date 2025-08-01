@@ -21,9 +21,9 @@ jobs:
       #options: --cpus 1
 
     steps:
-      -name: Log Node & OS Versions
+      - name: Log Node & OS Versions
         run: |
           node -v
           cat /etc/os-release
-      -name: Log Env  
+      - name: Log Env  
         run: echo $API_URL 

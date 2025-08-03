@@ -13,7 +13,7 @@ runs:
   using: "docker"
   image: 'Dockerfile'
   args:
-    who_to_greet: ${{ inputs.who_to_greet }} 
+    - ${{ inputs.who_to_greet }} 
   env:
     HELLO: WORLD 
   post-entrypoint: "/cleanup.sh"

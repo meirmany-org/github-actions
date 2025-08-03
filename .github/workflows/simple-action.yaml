@@ -11,7 +11,7 @@ jobs:
       - name: Simple Docker Action
         id: greet
         #uses: actions/hello-world-javascript-action@v1
-        uses: ./.github/actions/hello-docker 
+        uses: ./.github/actions/hello/hello-docker 
         with:
           #who-to-greet: Meir 
           who_to_greet: Meir 
